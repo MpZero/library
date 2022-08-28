@@ -46,6 +46,18 @@ function displayBook () {
   myLibrary.map(x => row4.innerText = x["numPages"]);
 }
 
+const toggle = document.getElementById('toggle');
+
+toggle.addEventListener('click', () => {
+  const form = document.getElementById('form');
+  form.style.display = "grid"
+  toggle.style.display = "none"
+  // if (form.style.display === 'none') {
+  //   form.style.display = 'grid';
+  // } else {
+  // }
+});
+
 /////////////////////////////////////
 // myLibrary.push(Book)
 

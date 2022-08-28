@@ -22,7 +22,11 @@ html {
   box-sizing: inherit;
 }
 
-
+:root {
+  --sidebar-color: #aca7cb;
+  --header-color: #474554;
+  --main-color: #c4c4c4;
+}
 
 
 
@@ -36,6 +40,7 @@ body {
 .container {
   display: grid;
   grid-template-columns: 1fr 3fr;
+  grid-template-rows: 200px 3fr;
   grid-template-areas: 
   "sidebar header"
   "sidebar main";
@@ -52,8 +57,12 @@ img {
 .sidebar {
   grid-area: sidebar;
   display: grid;
-  grid-template-rows: 0.5fr 3fr 1fr;
-  row-gap: 80px;
+  grid-template-rows: 200px 3fr;
+
+  justify-content: center;
+  align-items: flex-start;
+  background-color: var(--sidebar-color);
+  /* row-gap: 10px; */
 }
 
 .sidebar > h2 {
@@ -69,10 +78,10 @@ img {
   /* background-color:blanchedalmond; */
   grid-area: header;
   /* border: 1px solid black; */
-
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 0.5fr 0.5fr;
+  background-color: var(--header-color);
 }
 
 .header-container {
@@ -136,6 +145,9 @@ img {
   margin: 0px 10px;
 }
 
+button {
+  background-color: #faf7ff;
+}
 .header-buttons-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -166,7 +178,7 @@ img {
 .main {
   /* background-color: cadetblue; */
   grid-area: main;
-
+  padding: 40px;
   /* border: 1px solid black; */
   -webkit-box-shadow: inset 0px 7px 1px -2px #dfdcdc; 
   box-shadow: inset 0px 7px 1px -2px #dfdcdc;
@@ -174,8 +186,7 @@ img {
   justify-content: center;
   align-items: center;
   grid-auto-rows: auto auto;
-
-
+  background-color: var(--main-color);
 }
 
 table {
@@ -190,6 +201,10 @@ table {
 
 th {
   background-color: gray;
+}
+
+tr {
+  background-color: #faf7ff;
 }
 
 th, td {
@@ -207,8 +222,32 @@ th, td {
   padding: 10px;
 } */
 
+#toggle {
+  margin-top: 40px;
+  width: 150px;
+  height: 30px;
+}
+
 form {
-  display: grid;
+  display: none;
+  justify-content: center;
+  padding: 10px;
+  text-align: left;
+  grid-auto-rows: 30px;
+
+}
+
+label {
+  /* margin: 0px; */
+  height: 14px;
+  font-size: 14px;
+  margin-left: 4px;
+  font-weight: bold;
+}
+
+input[type=text] {
+  width: 200px;
+  margin: 4px;
 }
 
 input {

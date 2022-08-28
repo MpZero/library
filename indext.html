@@ -16,11 +16,14 @@
 <body>
 
   <div class="container">
+
+    <!-- Sidebar Start -->
     <div class="sidebar">
       <h2>
         Welcome to The Library
       </h2>
-      <form action="">
+      <button id="toggle">Toggle</button>
+      <form id="form" action="">
         <label for="title">Title</label>
         <input type="text" name="title" id="title">
     
@@ -36,6 +39,9 @@
         <button id="btn" type="button">Add Book!</button>
       </form>
     </div>
+    <!-- Sidebar End -->
+
+    <!-- Header Start -->
     <div class="header">
 
       <div class="header-container">
@@ -59,6 +65,9 @@
       </div>
     
     </div>
+    <!-- Header End -->
+
+    <!-- Main Start -->
     <div class="main">
       <h1>My Books</h1>
       <table id="table">
@@ -96,8 +105,8 @@
         </tbody>
       </table>
     </div>
+    <!-- Main End -->
   </div>
-
 
   
 </body>
