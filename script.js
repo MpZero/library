@@ -47,11 +47,17 @@ function displayBook () {
 }
 
 const toggle = document.getElementById('toggle');
+const sideShadow = document.getElementById("sidebar-shadow")
 
 toggle.addEventListener('click', () => {
   const form = document.getElementById('form');
+  // toggle.style.display = "none"
+  if (form.style.display === "grid") {
+  form.style.display = "none"
+  } else {
   form.style.display = "grid"
-  toggle.style.display = "none"
+  }
+  // sideShadow.style.box.shadow = "none"
   // if (form.style.display === 'none') {
   //   form.style.display = 'grid';
   // } else {
