@@ -35,6 +35,10 @@ function displayBook () {
   let row4 = document.createElement("td")
   let row5 = document.createElement("td")
   let row6 = document.createElement("td")
+  row6.classList = "btnTd"
+  let btn = document.createElement("button")
+  btn.innerText = "Delete"
+  btn.classList = "btnDel"
 
 
 
@@ -47,6 +51,7 @@ function displayBook () {
   table1.appendChild(row4)
   table1.appendChild(row5)
   table1.appendChild(row6)
+  row6.appendChild(btn)
 
 
   
@@ -59,7 +64,6 @@ function displayBook () {
   myLibrary.map(x => row4.innerText = x["numPages"]);
   myLibrary.map(x => row4.innerText = x["numPages"]);
   myLibrary.map(x => row5.innerText = x["status"]);
-  row6.innerText = "Delete"
 
 
 }

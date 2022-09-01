@@ -7,14 +7,14 @@ html {
 
 
 
-  font-family: 'Dancing Script', cursive;
+  /* font-family: 'Dancing Script', cursive; */
 
 
-  font-family: 'Lora', serif;
+  /* font-family: 'Lora', serif; */
 
-  font-family: 'Roboto', sans-serif;
+  /* font-family: 'Roboto', sans-serif; */
 
-  font-family: 'Roboto Slab', serif;
+  /* font-family: 'Roboto Slab', serif; */
   font-family: 'Libre Baskerville', serif;
 }
 
@@ -202,12 +202,11 @@ button,
 
 }
 
+/* Main Start */
 
 .main {
-  /* background-color: cadetblue; */
   grid-area: main;
   padding: 40px;
-  /* border: 1px solid black; */
   -webkit-box-shadow: inset 0px 7px 1px -2px #dfdcdc;
   box-shadow: inset 0px 7px 1px -2px #dfdcdc;
   display: grid;
@@ -240,15 +239,6 @@ th, td {
   padding: 10px 10px;
 }
 
-
-/* div > p:nth-child(1) {
-  color: red;
-} */
-
-/* h2 {
-  grid-column: 1/4;
-  padding: 10px;
-} */
 
 #sidebar-shadow {
   box-shadow: inset 0px 7px 1px -2px #dfdcdc;
@@ -319,6 +309,24 @@ input:hover,
   border: 2px solid #8f9195;
   cursor: pointer;
 }
+
+.btnTd {
+  display: grid;
+  padding: 0px;
+  background-color: blue;
+}
+
+.btnDel {
+  border: none;
+  font-family: "libre Baskerville", serif;
+  font-size: 16px;
+  cursor: pointer;
+  /* background-color: red; */
+  width: 100%;
+
+}
+
+
 /* 
 #btn:hover {
   background-color: #e4e0e0;
