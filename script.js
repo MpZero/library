@@ -1,3 +1,5 @@
+
+
 const btn = document.getElementById("btn").addEventListener("click", addBookToLibrary); //get the button by id, when clicked run addBookToLibrary
 
 let myLibrary = [   //empty array to store books 
@@ -13,6 +15,7 @@ function addBookToLibrary() {
   author: document.getElementById("author").value,
   year: document.getElementById("year").value,
   numPages: document.getElementById("numPages").value,
+  status: document.querySelector("input[name=readStatus]:checked").value
 };
 
   myLibrary.push(book) //push the object data into the array
@@ -30,6 +33,10 @@ function displayBook () {
   let row2 = document.createElement("td")
   let row3 = document.createElement("td")
   let row4 = document.createElement("td")
+  let row5 = document.createElement("td")
+  let row6 = document.createElement("td")
+
+
 
 
   //order the new table in the DOM
@@ -38,12 +45,23 @@ function displayBook () {
   table1.appendChild(row2)
   table1.appendChild(row3)
   table1.appendChild(row4)
+  table1.appendChild(row5)
+  table1.appendChild(row6)
+
+
+  
+  
  
   //fill the table with the objects stored in the array
   myLibrary.map(x => row1.innerText = x["title"]);
   myLibrary.map(x => row2.innerText = x["author"]);
   myLibrary.map(x => row3.innerText = x["year"]);
   myLibrary.map(x => row4.innerText = x["numPages"]);
+  myLibrary.map(x => row4.innerText = x["numPages"]);
+  myLibrary.map(x => row5.innerText = x["status"]);
+  row6.innerText = "Delete"
+
+
 }
 
 const toggle = document.getElementById('toggle');
