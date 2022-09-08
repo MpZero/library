@@ -186,7 +186,7 @@ button,
 
 
 .headerBtns,
-#toggle {
+#toggleForm {
   list-style: none;
   width: 100%;
   padding: 6px 8px 8px 6px;
@@ -197,7 +197,7 @@ button,
 }
 
 .headerBtns > p,
-#toggle {
+#toggleForm {
   font-size: 1rem;
 
 }
@@ -214,6 +214,7 @@ button,
   align-items: center;
   grid-auto-rows: auto auto;
   background-color: var(--main-color);
+  height: 100vh;
 }
 
 table {
@@ -247,14 +248,14 @@ margin-top: -6px;
 
 }
 
-#toggle {
+#toggleForm {
   height: 94px;
   background-color:rgb(0, 0, 0);
   color: white;
   cursor: pointer;
 }
 
-#toggle:hover {
+#toggleForm:hover {
   background-color: #282727;
 }
 
@@ -332,9 +333,10 @@ input:hover,
   font-family: "libre Baskerville", serif;
   font-size: 16px;
   cursor: pointer;
-  max-height: 100px;
+  max-height: 200px;
   max-width: 200px;
-  min-height: 80px;
+  min-width: 80px;
+  min-height: 140px;
   width: 100%;
 }
 
