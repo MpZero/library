@@ -278,7 +278,8 @@ label {
   font-weight: bold;
 }
 
-input[type=text] {
+input[type=text],
+input[type=number] {
   width: 200px;
 }
 
@@ -349,3 +350,17 @@ input:hover,
 #btn:hover {
   background-color: #e4e0e0;
 } */
+
+input:invalid {
+  border-color: #900;
+  background-color: #fdd;
+}
+
+input:focus:invalid {
+  outline: none;
+}
+
+input[type=number]:invalid {
+  border-color: #900;
+  background-color: #fdd;
+}
