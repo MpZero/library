@@ -77,13 +77,18 @@ function displayBook() {
     let td5 = document.createElement("td")
     let td6 = document.createElement("td")
 
+    let readBtn = document.createElement("button")
+    let delBtn = document.createElement("button")
 
     td6.classList = "btnTd"
-    let btn = document.createElement("button")
-    btn.innerText = "Delete"
-    btn.classList = "btnDel"
+    td5.classList = "btnTd"
+    delBtn.innerText = "Delete"
+    delBtn.classList = "btnDel"
+    readBtn.classList = "readBtn"
+
+    
     // btn.id = "del"
-    btn.setAttribute("data-index", [i])
+    delBtn.setAttribute("data-index", [i])
 
     tr.id = "tr" + [i]
 
@@ -94,14 +99,15 @@ function displayBook() {
     tr.appendChild(td4)
     tr.appendChild(td5)
     tr.appendChild(td6)
-    td6.appendChild(btn)
+    td5.appendChild(readBtn)
+    td6.appendChild(delBtn)
 
 
     td1.innerHTML = myLibrary[i].title
     td2.innerHTML = myLibrary[i].author
     td3.innerHTML = myLibrary[i].year
     td4.innerHTML = myLibrary[i].numPages
-    td5.innerHTML = myLibrary[i].status
+    readBtn.innerText = myLibrary[i].status
 
     // console.log(myLibrary[i].title)
     // myLibrary[i].data = "data-index" + [i] // data-index0
@@ -140,7 +146,15 @@ toggleForm.addEventListener('click', () => {
 });
 
 ///////////////////////////////////////////////////////////////////////////
+let readStatus = document.querySelector("#tbody").addEventListener("click", (e) => {
+  changeRead(e.target)
+  // console.log(e.target)
+  
+}) 
 
+function changeRead(el) {
+console.log(el)
+}
 
 // Works
 let deleteBtn = document.querySelector("#tbody").addEventListener("click", (e) => {
@@ -149,23 +163,6 @@ let deleteBtn = document.querySelector("#tbody").addEventListener("click", (e) =
   
 }) 
 
-// function deleteBook(el) {
-//   for (let i = myLibrary.length - 1; i >= 0; --i) {
-//     // console.log(el.dataset.index)
-//     // console.log(el.getAttribute())
-
-//     // console.log(myLibrary[i].dataset.index)
-//     console.log(myLibrary[i].data)
-
-//     if (parseInt(myLibrary[i].data )  === el.dataset.index) {
-//       console.log("hey")
-//         // myLibrary.splice(i,1);
-//     }
-// }
-// // reloadTable()
-// // displayBook()
-
-// }
 
 function deleteBook(el) {
   for (let i = 0; i < myLibrary.length; i++) {
@@ -206,92 +203,3 @@ function deleteTable() {
    }
   
 }
-/////Deletes the DOM table////
-// function deleteBook(el) {
-//   let a = document.getElementById("tr0")
-//   if(el.classList.contains("btnDel")){
-//     el.parentElement.parentElement.remove();
-//     myLibrary.splice()
-//   }
-//  reloadTable()
-// }
-
-/////
-// for (let i = 0; i < myLibrary.length; i++) {
-//   // const element = myLibrary[i];
-//   let a = document.querySelectorAll('[data-index="{i}"]').addEventListener("click", (e) => {
-//     console.log(e.target)
-  
-// })
-// }
-
-// document.querySelector('[data-index="{i}"]').addEventListener("click", (e) => {
-//   console.log(e.target)
-// }) 
-
-
-
-
-
-
-// const elements1 = document.querySelectorAll(myLibrary.0);
-// console.log(elements1); // 👉️ [div, div]
-
-
-// Delete books    
-// function a() {
-// for (let i = 0; i < myLibrary.length; i++) {
-//   const deleteBtn = document.querySelectorAll("data-index", [i]);
-  
-//   deleteBtn.forEach(btn => {
-//     btn.addEventListener("click", () => deleteBook())
-//   });
-// }
-
-// }
-
-// for (let i = 0; i < myLibrary.length; i++) {
-//   console.log("hey")
-//   // const deleteBtn = document.querySelectorAll(`[data-id=+${i}]`)
-//   const deleteBtn = document.querySelectorAll('[data-index=' + {i}+"]")
-//   deleteBtn.forEach(btn => {
-//     btn.addEventListener("click", () => console.log("hey"))
-//   });
-  
-// }
-// const deleteBtn = document.querySelectorAll("data-index"[i]);
-  
-//   deleteBtn.forEach(btn => {
-//     btn.addEventListener("click", () => deleteBook())
-//   });
-
-// const deleteBtn = document.querySelectorAll("data-index"[i]);
-
-// deleteBtn.forEach(btn => {
-//   btn.addEventListener("click", () => deleteBook())
-// });
-
-
-// function deleteBook() {
-//   console.log("hey")
-// //   for (var i = myArray.length - 1; i >= 0; --i) {
-// //     if (myArray[i].field == "money") {
-// //         myArray.splice(i,1);
-// //     }
-// }
-
-  // this.remove();
-  // myLibrary.pop()
-  // allDeleteBtns.parentElement.remove()
-  // let a = allDeleteBtns
-  // a.remove()
-  // delBook = ""
-  // console.log(myLibrary)
-
-
-///////////////////////////////////////////////////
-
-// deleteButton.addEventListener("click", () =>
-//    document.querySelectorAll(`[data-id="${i}]`).remove()
-// );
-

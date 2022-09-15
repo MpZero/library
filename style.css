@@ -298,7 +298,8 @@ input:focus,
 input:hover,
 #btn:hover,
 .headerBtns:hover,
-.btnDel:hover {
+.btnDel:hover,
+.readBtn:hover {
   background-color: #e4e0e0;
 }
 
@@ -326,7 +327,8 @@ input:hover,
 
 }
 
-.btnDel {
+.btnDel,
+.readBtn {
   padding: 0px;
   border: none;
   /* background-color: black; */
@@ -341,7 +343,8 @@ input:hover,
   width: 100%;
 }
 
-.btnDel:active {
+.btnDel:active,
+.readBtn:active {
   background-color: white;
 }
 
