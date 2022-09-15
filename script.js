@@ -17,15 +17,15 @@ let myLibrary = [{
 {
   title: "The Count of Monte Cristo", author: "Alexandre Dumas", year: "1846", numPages: "1276", status: "Read"
 },
-{
-  title: "2", author: "Alexandre Dumas", year: "1846", numPages: "1276", status: "Read"
-},
-{
-  title: "3", author: "Alexandre Dumas", year: "1846", numPages: "1276", status: "Read"
-},
-{
-  title: "4", author: "Alexandre Dumas", year: "1846", numPages: "1276", status: "Read"
-}
+// {
+//   title: "2", author: "Alexandre Dumas", year: "1846", numPages: "1276", status: "Read"
+// },
+// {
+//   title: "3", author: "Alexandre Dumas", year: "1846", numPages: "1276", status: "Read"
+// },
+// {
+//   title: "4", author: "Alexandre Dumas", year: "1846", numPages: "1276", status: "Read"
+// }
 
 ];
 
@@ -56,7 +56,8 @@ function addBookToLibrary() {
   //push the object data into the array
   myLibrary.push(book)
 
-  // reloadTable()
+  //run function to delete the table
+  deleteTable()
 
   //run function to display the books on the table
   displayBook() 
@@ -184,6 +185,27 @@ function deleteBook(el) {
     }
 }
 
+
+function deleteTable() {
+   for (let i = 0; i < myLibrary.length; i++) {
+  
+      //seleccionar tr adecuado si se elimina el orden entonces se rompe
+    let tr = document.getElementById("tr" + [i])
+    console.log(tr)
+    if (tr !== null) {
+      tr.remove()
+    } else {
+      console.log(myLibrary)
+      // return
+
+    }
+    
+    // table.remove()
+    // tbody.remove()
+
+   }
+  
+}
 /////Deletes the DOM table////
 // function deleteBook(el) {
 //   let a = document.getElementById("tr0")
