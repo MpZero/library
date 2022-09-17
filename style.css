@@ -214,7 +214,6 @@ button,
   align-items: center;
   grid-auto-rows: auto auto;
   background-color: var(--main-color);
-  height: 100vh;
 }
 
 table {
