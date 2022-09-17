@@ -31,12 +31,7 @@ let myLibrary = [{
 
 displayBook()
 
-
 function addBookToLibrary() {
-
-  //empty the table before adding a new book
-  // reloadTable()
-
 
   //get the book data from the form inputs into an object
   const book = {
@@ -89,7 +84,8 @@ function displayBook() {
     
     // btn.id = "del"
     delBtn.setAttribute("data-index", [i])
-
+    readBtn.setAttribute("data-status", [i] )
+    readBtn.id = "status" + [i]
     tr.id = "tr" + [i]
 
     tbody.appendChild(tr)
@@ -103,35 +99,87 @@ function displayBook() {
     td6.appendChild(delBtn)
 
 
-    td1.innerHTML = myLibrary[i].title
-    td2.innerHTML = myLibrary[i].author
-    td3.innerHTML = myLibrary[i].year
-    td4.innerHTML = myLibrary[i].numPages
+    td1.textContent = myLibrary[i].title
+    td2.textContent = myLibrary[i].author
+    td3.textContent = myLibrary[i].year
+    td4.textContent = myLibrary[i].numPages
     readBtn.innerText = myLibrary[i].status
 
-    // console.log(myLibrary[i].title)
-    // myLibrary[i].data = "data-index" + [i] // data-index0
     myLibrary[i].data = [i] // 
 
-    // console.log(myLibrary[i].data)
   }
 }
 
 function reloadTable(el) {
-  // let tr = document.getElementById("table")
   el.parentElement.parentElement.remove()
-
-  // for (let i = 0; i < myLibrary.length; i++) {
-  
-  //   // let tr = document.getElementById("tr" + [i])
-  //   // tr.remove()
-  //   el.parentElement.parentElement.remove()
-
-  // }
 }
 
 
-///////////////////////////////////////////////////////////////////////////
+
+let readStatus = document.querySelector("#tbody").addEventListener("click", (e) => {
+  changeRead(e.target)
+  // console.log(e.target)
+  
+}) 
+
+// let index = document.querySelector("#tbody").addEventListener("click", (e) => {
+// changeRead(e.target)
+// })
+
+// Works
+let deleteBtn = document.querySelector("#tbody").addEventListener("click", (e) => {
+  deleteBook(e.target)
+  // console.log(e.target)
+  
+}) 
+
+function changeRead(el) {
+  for (let i = 0; i < myLibrary.length; i++) {
+   
+    if (myLibrary[i].data == el.dataset.status && myLibrary[i].status == "Read") {
+
+      myLibrary[i].status = "Not Read"
+      el.textContent = "Not Read"
+
+    } else if (myLibrary[i].data == el.dataset.status && myLibrary[i].status == "Not Read") {
+
+      myLibrary[i].status = "Read"
+      el.textContent = "Read"
+
+    }
+  }
+  console.table(myLibrary)
+}
+
+function deleteBook(el) {
+  for (let i = 0; i < myLibrary.length; i++) {
+    // console.log(el.dataset.index) // 0
+    // console.log(myLibrary[i].data) // data-index0
+    // console.log(el.getAttribute("data-index")) // 0
+    if (myLibrary[i].data  == el.dataset.index) {
+        myLibrary.splice(i,1);
+        console.table(myLibrary)
+        reloadTable(el)
+      }
+    }
+}
+
+
+function deleteTable() {
+   for (let i = 0; i < myLibrary.length; i++) {
+  
+    let tr = document.getElementById("tr" + [i])
+    console.log(tr)
+    if (tr !== null) {
+      tr.remove()
+    } else {
+      console.log(myLibrary)
+    }
+
+   }
+  
+}
+
 //make a form to add books appear after clicking the "Click Here..." button
 const toggleForm = document.getElementById('toggleForm');
 
@@ -144,62 +192,3 @@ toggleForm.addEventListener('click', () => {
     form.style.display = "grid"
   }
 });
-
-///////////////////////////////////////////////////////////////////////////
-let readStatus = document.querySelector("#tbody").addEventListener("click", (e) => {
-  changeRead(e.target)
-  // console.log(e.target)
-  
-}) 
-
-function changeRead(el) {
-console.log(el)
-}
-
-// Works
-let deleteBtn = document.querySelector("#tbody").addEventListener("click", (e) => {
-  deleteBook(e.target)
-  // console.log(e.target)
-  
-}) 
-
-
-function deleteBook(el) {
-  for (let i = 0; i < myLibrary.length; i++) {
-    // console.log(el.dataset.index) // 0
-    // console.log(myLibrary[i].data) // data-index0
-    // console.log(el.getAttribute("data-index")) // 0
-    
-    // console.log(myLibrary[i].data)
-
-
-    if (myLibrary[i].data  == el.dataset.index) {
-      // console.log("hey")
-        myLibrary.splice(i,1);
-        console.table(myLibrary)
-        reloadTable(el)
-      }
-    }
-}
-
-
-function deleteTable() {
-   for (let i = 0; i < myLibrary.length; i++) {
-  
-      //seleccionar tr adecuado si se elimina el orden entonces se rompe
-    let tr = document.getElementById("tr" + [i])
-    console.log(tr)
-    if (tr !== null) {
-      tr.remove()
-    } else {
-      console.log(myLibrary)
-      // return
-
-    }
-    
-    // table.remove()
-    // tbody.remove()
-
-   }
-  
-}
