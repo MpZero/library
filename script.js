@@ -1,8 +1,6 @@
-//get the button by id, when clicked run addBookToLibrary
-// const submitBtn = document.getElementById("btn").addEventListener("click", addBookToLibrary);
-
+//get the submit button 
 const submitBtn = document.getElementById("btn").addEventListener("click", addBookToLibrary, (e) => {
- reloadTable(e)
+ deleteTableBook(e)
 });
 
 //get the table elements to append a generated table
@@ -16,24 +14,13 @@ let myLibrary = [{
 },
 {
   title: "The Count of Monte Cristo", author: "Alexandre Dumas", year: "1846", numPages: "1276", status: "Read"
-},
-// {
-//   title: "2", author: "Alexandre Dumas", year: "1846", numPages: "1276", status: "Read"
-// },
-// {
-//   title: "3", author: "Alexandre Dumas", year: "1846", numPages: "1276", status: "Read"
-// },
-// {
-//   title: "4", author: "Alexandre Dumas", year: "1846", numPages: "1276", status: "Read"
-// }
-
-];
+}];
 
 displayBook()
 
 function addBookToLibrary() {
 
-  //get the book data from the form inputs into an object
+  //get the book values from the form inputs into an object
   const book = {
     title: document.getElementById("title").value,
     author: document.getElementById("author").value,
@@ -60,9 +47,9 @@ function addBookToLibrary() {
 };
 
 
+//creates cells, appends them to the table and fills them with the objects
 function displayBook() {
   for (let i = 0; i < myLibrary.length; i++) {
-    
     
     let tr = document.createElement("tr")
     let td1 = document.createElement("td")
@@ -82,7 +69,6 @@ function displayBook() {
     readBtn.classList = "readBtn"
 
     
-    // btn.id = "del"
     delBtn.setAttribute("data-index", [i])
     readBtn.setAttribute("data-status", [i] )
     readBtn.id = "status" + [i]
@@ -105,35 +91,22 @@ function displayBook() {
     td4.textContent = myLibrary[i].numPages
     readBtn.innerText = myLibrary[i].status
 
-    myLibrary[i].data = [i] // 
+    myLibrary[i].data = [i] 
 
   }
 }
 
-function reloadTable(el) {
-  el.parentElement.parentElement.remove()
-}
-
-
-
+//get the input for the read status button
 let readStatus = document.querySelector("#tbody").addEventListener("click", (e) => {
-  changeRead(e.target)
-  // console.log(e.target)
-  
+  changeReadStatus(e.target)
 }) 
 
-// let index = document.querySelector("#tbody").addEventListener("click", (e) => {
-// changeRead(e.target)
-// })
-
-// Works
+//get the input for the delete button
 let deleteBtn = document.querySelector("#tbody").addEventListener("click", (e) => {
   deleteBook(e.target)
-  // console.log(e.target)
-  
 }) 
 
-function changeRead(el) {
+function changeReadStatus(el) {
   for (let i = 0; i < myLibrary.length; i++) {
    
     if (myLibrary[i].data == el.dataset.status && myLibrary[i].status == "Read") {
@@ -148,44 +121,44 @@ function changeRead(el) {
 
     }
   }
-  console.table(myLibrary)
 }
 
+//deletes selected book from array
 function deleteBook(el) {
   for (let i = 0; i < myLibrary.length; i++) {
-    // console.log(el.dataset.index) // 0
-    // console.log(myLibrary[i].data) // data-index0
-    // console.log(el.getAttribute("data-index")) // 0
     if (myLibrary[i].data  == el.dataset.index) {
         myLibrary.splice(i,1);
-        console.table(myLibrary)
-        reloadTable(el)
+        //reloads the table
+        deleteTableBook(el)
       }
     }
 }
 
+//removes the selected book row from the table
+function deleteTableBook(el) {
+  el.parentElement.parentElement.remove()
+}
 
+
+//removes all rows from the table except the headers
 function deleteTable() {
    for (let i = 0; i < myLibrary.length; i++) {
   
     let tr = document.getElementById("tr" + [i])
-    console.log(tr)
     if (tr !== null) {
       tr.remove()
     } else {
-      console.log(myLibrary)
     }
-
    }
-  
 }
+
+
 
 //make a form to add books appear after clicking the "Click Here..." button
 const toggleForm = document.getElementById('toggleForm');
 
 toggleForm.addEventListener('click', () => {
   const form = document.getElementById('form');
-  // toggle.style.display = "none"
   if (form.style.display === "grid") {
     form.style.display = "none"
   } else {

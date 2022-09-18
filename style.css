@@ -3,18 +3,6 @@ html {
   margin: 0;
   padding: 0;
   text-align: center;
-
-
-
-
-  /* font-family: 'Dancing Script', cursive; */
-
-
-  /* font-family: 'Lora', serif; */
-
-  /* font-family: 'Roboto', sans-serif; */
-
-  /* font-family: 'Roboto Slab', serif; */
   font-family: 'Libre Baskerville', serif;
 }
 
@@ -28,11 +16,6 @@ html {
   --main-color: #c4c4c4;
 }
 
-
-
-/* form {
-  display: none;
-} */
 body {
   margin: 0;
 }
@@ -101,10 +84,10 @@ input[type="radio"]:checked::after {
 
 /* Sidebar End */
 
+/* Header Start */
+
 .header {
-  /* background-color:blanchedalmond; */
   grid-area: header;
-  /* border: 1px solid black; */
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 0.5fr 0.5fr;
@@ -144,13 +127,13 @@ input[type="radio"]:checked::after {
 .header-user {
   display: grid;
   grid-template-columns: auto auto;
-  /* justify-content: center; */
   align-items: center;
   min-width: 160px;
 }
 
 .header-user > p {
   margin: 2px 90px 10px 0px;
+  color: white;
 }
 
 .header-user > img {
@@ -168,7 +151,6 @@ input[type="radio"]:checked::after {
 
 .search {
   grid-column: 1/2;
-  /* width: 90%; */
   width: auto;
   margin: 0px 10px;
 }
@@ -181,7 +163,6 @@ button,
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   align-items: end;
-  /* justify-content: space-evenly; */
 }
 
 
@@ -201,6 +182,8 @@ button,
   font-size: 1rem;
 
 }
+
+/* Header End */
 
 /* Main Start */
 
@@ -222,7 +205,6 @@ table {
   background-color: white;
   border: 1px solid black;
   border-collapse: collapse;
-  /* letter-spacing: 1px; */
   margin-bottom: 40px;
 }
 
@@ -243,8 +225,6 @@ th, td {
 #sidebar-shadow {
   box-shadow: inset 0px 7px 1px -2px #dfdcdc;
 margin-top: -6px;
-/* padding-top: 20px; */
-
 }
 
 #toggleForm {
@@ -263,7 +243,6 @@ form {
   justify-content: center;
   padding: 10px;
   text-align: left;
-  /* grid-auto-rows: 30px; */
   margin-top: 80px;
 }
 
@@ -314,24 +293,12 @@ input:hover,
 }
 
 .btnTd {
-  /* display: flex; */
   padding: 0px;
-  background-color: red;
-  /* justify-content: center; */
-  /* align-items: center; */
-  /* height: 100%; */
-  /* width: 100%; */
-  /* height: 40px; */
-  /* width: 40px; */
-
 }
 
 .btnDel,
 .readBtn {
-  padding: 0px;
   border: none;
-  /* background-color: black; */
-  /* color: white; */
   font-family: "libre Baskerville", serif;
   font-size: 16px;
   cursor: pointer;
@@ -346,12 +313,6 @@ input:hover,
 .readBtn:active {
   background-color: white;
 }
-
-
-/* 
-#btn:hover {
-  background-color: #e4e0e0;
-} */
 
 input:invalid {
   border-color: #900;
